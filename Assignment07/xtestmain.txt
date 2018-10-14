@@ -1,0 +1,173 @@
+// BBoard bb("CS12 Bulletin Board");
+    
+    // bb.load_users("users1.txt");
+    // bb.load_messages("data1.txt");
+    // //board1.display();
+    // //board1.save_messages("data3out.txt");
+    // bb.login();
+    // bb.run();
+    // bb.save_messages("data3out.txt");
+    
+    
+    
+    // vector<Message *> message_list;
+    // vector<string> children_lists;
+    // string discard;
+    // string lineString;
+    // int id;
+    // int number_of_messages = 0;
+    // string subject = "";
+    // string author = "";
+    // string child_id_string = "";
+    // string body = "";
+    // string type_of_message = "";
+    // stringstream iss;
+    
+    // //------------------------------------------------------------
+    // //opening input file for reading values    
+    // ifstream fin;
+    // fin.open("data1.txt");
+    // if(!fin.is_open()) // is_open() returns true if file is open
+    // {
+    //     cout << "Error, data1.txt did not open correctly"<<endl;
+    //     exit(0); //if inside a function and want to break out of program, you use exit(0); from cstdlib
+    // }
+    // //------------------------------------------------------------
+
+    // //------------------------------------------------------------
+    // //Parsing for topic messages
+    // iss.clear();
+    // getline(fin, lineString); //Get first line
+    // iss.str(lineString);
+    // iss >> number_of_messages; //Get number of messages
+    // for (int i = 1; i <= number_of_messages; ++i)
+    // {
+    //     getline(fin, lineString);
+    //     type_of_message = lineString; //Get message Type
+    //     //cout << "Type of Message: " << type_of_message << endl;
+    //     fin >> discard; //discard :id: tag
+    //     getline(fin, lineString);
+    //     iss.clear();
+    //     iss.str(lineString);
+    //     iss >> id; //Get id number
+    //     fin >> discard; //discard :subject: tag
+    //     getline(fin, lineString);
+    //     subject = lineString.substr(1, lineString.size()-1); //Get subject line
+    //     fin >> discard; //discard :from: tag
+    //     getline(fin, lineString);
+    //     author = lineString.substr(1, lineString.size()-1); //Get author line
+    //     fin >> discard;
+    //     getline(fin, lineString);
+    //     if (discard == ":children:")
+    //     {
+    //         child_id_string = lineString.substr(1, lineString.size()-1) + "";
+    //         //cout << "Child id String is:" << child_id_string << endl; 
+    //         fin >> discard;
+    //         getline(fin, lineString);
+    //     }
+    //     else
+    //     {
+    //         child_id_string = "";
+    //         //cout << "Child id String is:" << child_id_string << endl;
+    //     }
+    //     body = lineString.substr(1, lineString.size()-1); //Get body line
+    //     getline(fin, lineString);
+    //     while (lineString != "<end>") //Get rest of body if more
+    //     {
+    //         body += "\n" + lineString;
+    //         getline(fin, lineString);
+    //     }
+        
+    //     if(type_of_message == "<begin_topic>")
+    //     {
+    //         Topic *message = new Topic(author, subject, body, id);
+    //         message_list.push_back(message);
+    //         //cout << "Added Topic" << endl;
+    //     }
+        
+    //     if(type_of_message == "<begin_reply>")
+    //     {
+    //         Reply *message = new Reply(author, subject, body, id);
+    //         message_list.push_back(message);
+    //         //cout << "Added Reply" << endl;
+    //     }
+        
+    //     children_lists.push_back(child_id_string);
+    // }
+    
+    // fin.close();
+    // //------------------------------------------------------------
+
+    // //------------------------------------------------------------
+    // //Parsing for children
+    // for(int i = 0; i < message_list.size(); ++i)
+    // {
+    //     iss.clear();
+    //     int child_id;
+    //     child_id_string = children_lists.at(i);
+    //     //cout << "Children List "<< i << ": " << child_id_string << endl;
+        
+    //     iss.str(child_id_string);
+    //     while (iss >> child_id)
+    //     {
+    //         //cout << "Child Id Added: " << child_id;
+    //         (message_list.at(i))->add_child(message_list.at(child_id-1));
+    //     }
+    //     //cout << endl;
+    // }
+    //single case
+    // (message_list.at(0))->add_child(message_list.at(6-1));
+    // (message_list.at(0))->add_child(message_list.at(9-1));
+
+
+    //------------------------------------------------------------    
+    //Display all topics
+    // for (int i = 0; i < message_list.size(); ++i)
+    // {
+    //     if (!(message_list.at(i)->is_reply()))
+    //     {
+    //         cout << "------------------------------------------------------------" << endl;
+    //         (message_list.at(i))->print(0); 
+    //     }
+    // }
+    // cout << "------------------------------------------------------------" << endl;
+    
+    //------------------------------------------------------------
+    //Display child id strings
+    // for (int i = 0; i < children_lists.size(); ++i)
+    // {
+    //     cout << children_lists.at(i) << endl;
+    // }
+    //------------------------------------------------------------ 
+    
+    //------------------------------------------------------------    
+    //Testing Formatted String output to console
+    // for (int i = 0; i < message_list.size(); ++i)
+    // {
+    //     //if (!(message_list.at(i)->is_reply()))
+    //     //{
+    //         cout << (message_list.at(i))->to_formatted_string();
+    //     //}
+    // }
+    //------------------------------------------------------------
+    
+    //------------------------------------------------------------    
+    //Testing Formatted String output to File
+    // ofstream fout;
+   
+    // // Open file
+    // fout.open("data3out.txt");
+   
+    // if (!fout.is_open())
+    // {
+    //     cout << "Error, data3out.txt did not open correctly"<<endl;
+    //     exit(0); //if inside a function and want to break out of program, you use exit(0); from cstdlib
+    // }
+    
+    // fout << message_list.size() << endl;
+    // for (int i = 0; i < message_list.size(); ++i)
+    // {
+    //     fout << (message_list.at(i))->to_formatted_string();
+    // }
+    //------------------------------------------------------------  
+    
