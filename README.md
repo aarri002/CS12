@@ -1,5 +1,5 @@
 # CS12
-Files for Personal Projects at UCR CS12 Course.
+Files for Personal Projects at UCR CS12 Course in C++ Programming.
 
 Student: Alberto Arriaga Felix
 
